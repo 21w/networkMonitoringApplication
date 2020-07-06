@@ -3,4 +3,5 @@
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="search">検索</string>
+    <string name="wifiListTitle">Wi-Fi一覧</string>
 </resources>
