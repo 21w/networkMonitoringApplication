@@ -4,4 +4,9 @@
     <string name="button_send">Send</string>
     <string name="search">検索</string>
     <string name="wifiListTitle">Wi-Fi一覧</string>
+    <string name="wifiInformation">Wi-Fi情報</string>
+    <string name="ssid">SSID</string>
+    <string name="automaticUpdating">自動更新</string>
+    <string name="rssiTitle">電波強度</string>
+    <string name="timeStamp">タイムスタンプ</string>
 </resources>
