@@ -23,10 +23,13 @@ public class NetworkManager {
     }
 
     // WiFi情報を更新する
-    public WiFiInfo updateWiFiInfo(String ssid){
-        System.out.println(wifiManager.startScan());
-        //　特定のWiFi情報を取得
-        ScanResult updateInfo = getScanResult(ssid);
+    public synchronized WiFiInfo updateWiFiInfo(String ssid){
+        ScanResult updateInfo  = null;
+        //　WiFiのスキャンをリクエストする
+        if (wifiManager.startScan()){
+            //　特定のWiFi情報を取得
+            updateInfo = getScanResult(ssid);
+        }
         // 特定のWiFi情報を更新
         return wiFiInfoList.updateWiFiInfo(updateInfo.SSID,updateInfo.level,getTimeStamp(updateInfo.timestamp));
     }

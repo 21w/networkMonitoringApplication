@@ -71,7 +71,7 @@ public class WifiDetailInformation extends AppCompatActivity {
                 timer = new Timer();
             }
             // Timerクラスの実行
-            timer.schedule(new AutoUpdateTask(),1000,1000);
+            timer.schedule(new AutoUpdateTask(),1000,4000);
             auto = true;
         }else{
             auto = false;
@@ -98,8 +98,9 @@ public class WifiDetailInformation extends AppCompatActivity {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
+                    // WiFi情報の更新
                     WiFiInfo info = networkManager.updateWiFiInfo(ssid);
-                    // WiFi情報の更新と表示
+                    // WiFi情報の表示
                     showData(info);
                     System.out.println(info.getTimeStamp());
                     // 自動更新の停止
