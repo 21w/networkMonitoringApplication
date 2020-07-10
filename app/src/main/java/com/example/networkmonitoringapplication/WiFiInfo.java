@@ -4,24 +4,21 @@ public class WiFiInfo {
     // データ型の定義
     private String ssid;
     private int rssi;
-    private long timeStamp;
+    private String timeStamp;
 
-    public WiFiInfo(String ssid, int rssi, long timeStamp) {
+    public WiFiInfo(String ssid, int rssi, String timeStamp) {
         this.ssid = ssid;
         this.rssi = rssi;
         this.timeStamp = timeStamp;
     }
 
     // セッター
-    public void setSsid(String ssid) {
-        this.ssid = ssid;
-    }
 
     public void setRssi(int rssi) {
         this.rssi = rssi;
     }
 
-    public void setTimeStamp(long timeStamp){
+    public void setTimeStamp(String timeStamp){
         this.timeStamp = timeStamp;
     }
 
@@ -34,7 +31,7 @@ public class WiFiInfo {
         return rssi;
     }
 
-    public long getTimeStamp(){
+    public String getTimeStamp(){
         return timeStamp;
     }
 

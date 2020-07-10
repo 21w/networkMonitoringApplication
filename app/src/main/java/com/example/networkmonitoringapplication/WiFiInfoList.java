@@ -5,20 +5,27 @@ import java.util.ArrayList;
 public class WiFiInfoList {
     // データ型の定義
     private static WiFiInfoList wiFiInfoList = new WiFiInfoList();
-    private static ArrayList<WiFiInfo> wiFiInfoArrayList = new ArrayList<>();
+    private ArrayList<WiFiInfo> wiFiInfoArrayList = new ArrayList<>();
 
     private WiFiInfoList() {
     }
 
     // リストに新しいWiFi情報を登録
-    public void addWiFiInfo(String ssid, int rssi, long timeStamp) {
+    public void addWiFiInfo(String ssid, int rssi, String timeStamp) {
         wiFiInfoArrayList.add(new WiFiInfo(ssid, rssi, timeStamp));
         System.out.println(wiFiInfoArrayList.get(0));
     }
 
-    // リストが空かどうか
-    public boolean isEmptyList(){
-        return wiFiInfoArrayList != null;
+    //　特定のWiFi情報を更新する
+    public WiFiInfo updateWiFiInfo (String ssid, int rssi, String timeStamp){
+        for (WiFiInfo info:wiFiInfoArrayList){
+            if (info.getSsid().equals(ssid)){
+                info.setRssi(rssi);
+                info.setTimeStamp(timeStamp);
+                return info;
+            }
+        }
+        return null;
     }
 
     // SSID一覧を参照する
@@ -42,6 +49,11 @@ public class WiFiInfoList {
     // リストを全件削除する
     public void removeAllWiFiInfo() {
         wiFiInfoArrayList.clear();
+    }
+
+    // リストが空かどうか
+    public boolean isEmptyList(){
+        return wiFiInfoArrayList != null;
     }
 
     //　インスタンスを返す
